@@ -1,4 +1,5 @@
 console.log("connected");
+console.log(" ")
 
 const books = [
   {
@@ -88,24 +89,67 @@ const titles = [
 
 //Array of authors and the book they wrote
 //"--- wrote --- in ---"
-
-
+books.forEach(book => {
+  console.log(book.authorFirst + " " + book.authorLast + " wrote " + book.name + " in " + book.publishDate);
+});
+console.log(" ");
+  
 //Sort books from oldest to most recent
-
+books.sort((a, b) => a.publishDate - b.publishDate);
+for (const book of books) {
+  console.log(book.name + " by " + book.authorFirst + " " + book.authorLast + " (" + book.publishDate + ")");
+}
+console.log(" ");
 
 //sort books alphabetically
-
+titles.sort();
+  console.log(titles);
+console.log(" ");
 
 //Find who wrote War and Peace
-
+const warAndPeace = books.find(book => book.name === "War and Peace");
+if (warAndPeace) {
+  console.log("The author of War and Peace is " + warAndPeace.authorFirst + " " + warAndPeace.authorLast);
+} else {
+  console.log("War and Peace not found in the list of books.");
+}
+console.log(" ");
 
 //how many books were written before 1900?
-
+const before1900 = books.reduce((count, book) => {
+  if (book.publishDate < 1900) {
+    return count + 1;
+  }
+  return count;
+}, 0);
+console.log("There are " + before1900 + " books written before 1900.");
+console.log(" ");
 
 //was there at least one book published within the last 100 years?
-
+const currentYear = new Date().getFullYear();
+const notCenturyOld = books.some(book => currentYear - book.publishDate <= 100);
+if (notCenturyOld) {
+  console.log("At least one book on the list was published within the last century.");
+} else {
+  console.log("All books on the list are older than 100 years.");
+}
+console.log(" ");
 
 //was every book published within the last 100 years?
-
+const allBooksWithinLastCentury = books.every(book => currentYear - book.publishDate <= 100);
+if (allBooksWithinLastCentury) {
+  console.log("Every book in the list was published within the last century.");
+} else {
+  console.log("The list contains books that are at least a century old.");
+}
+console.log(" ");
 
 //print a list of books that "includes" the genre historical
+const historicalBooks = books.filter(book => book.genre.includes("historical"));
+if (historicalBooks.length > 0) {
+  historicalBooks.forEach(book => {
+    console.log(book.name + " by " + book.authorFirst + " " + book.authorLast);
+  });
+} else {
+  console.log("There are no books with the 'historical' genre in this list.");
+}
