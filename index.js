@@ -104,7 +104,7 @@ titles.sort();
   console.log(titles);
 
 //Find who wrote War and Peace
-const warAndPeace = books.find(book => book.name === "War and Peace");
+const warAndPeace = books.filter(book => book.name === "War and Peace");
 if (warAndPeace) {
   console.log("The author of War and Peace is " + warAndPeace.authorFirst + " " + warAndPeace.authorLast);
 } else {
@@ -130,7 +130,7 @@ if (notCenturyOld) {
 }
 
 //was every book published within the last 100 years?
-const allBooksWithinLastCentury = books.every(book => currentYear - book.publishDate <= 100);
+const allBooksWithinLastCentury = books.filter(book => currentYear - book.publishDate <= 100);
 if (allBooksWithinLastCentury) {
   console.log("Every book in the list was published within the last century.");
 } else {
