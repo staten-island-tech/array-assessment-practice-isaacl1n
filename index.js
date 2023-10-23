@@ -3693,4 +3693,11 @@ presidents.forEach(presidents => {
   }
 });
 
+console.log("")
 //BONUS write a script to check if LBJ was a 2 term president. IF he was then alert("LBJ served two terms") else alert "LBJ was one and done"
+const lyndonJohnson = presidents.filter(president => president.name === "Lyndon Johnson" && president.terms === 2);
+  if (lyndonJohnson.length > 0) {
+    console.log("LBJ served two terms")
+  } else {
+    console.log("LBJ was one and done")
+  }
