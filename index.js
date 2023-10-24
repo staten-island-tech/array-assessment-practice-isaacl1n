@@ -1127,8 +1127,6 @@ console.log("connected");
 // data.forEach(anime => {
 //   if (anime.score >= 8) {
 //     console.log(anime.title);
-//   } else {
-//     console.log("")
 //   }
 // });
 
@@ -1136,8 +1134,6 @@ console.log("connected");
 // data.forEach(anime => {
 //   if (anime.stringGenres.includes("action")) {
 //     console.log(`Anime Name: ${anime.title}`);
-//   } else {
-//     console.log("")
 //   }
 // });
 
